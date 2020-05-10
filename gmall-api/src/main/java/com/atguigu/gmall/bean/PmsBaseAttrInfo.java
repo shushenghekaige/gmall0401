@@ -10,7 +10,7 @@ import java.util.List;
  * @param
  * @return
  */
-public class PmsBaseAttrInfo implements Serializable {
+public class PmsBaseAttrInfo extends PmsProductInfo implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

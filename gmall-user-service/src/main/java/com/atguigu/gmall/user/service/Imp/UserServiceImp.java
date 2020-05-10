@@ -32,16 +32,20 @@ public class UserServiceImp implements UserService {
     @Override
     public List<UmsMemberReceiveAddress> getAddressByMemberId(String memberId) {
 
-//        UmsMemberReceiveAddress umsMemberReceiveAddress = new UmsMemberReceiveAddress();
-//        umsMemberReceiveAddress.setMemberId(memberId);
-//
-//        List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = umsMemberReceiveAddressMapper.select(umsMemberReceiveAddress);
+//        Example example = new Example(UmsMemberReceiveAddress.class);
+//        example.createCriteria().andEqualTo("memberId",memberId);
+//        List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = umsMemberReceiveAddressMapper.selectByExample(example);
 
-        Example example = new Example(UmsMemberReceiveAddress.class);
-        example.createCriteria().andEqualTo("memberId",memberId);
-
-        List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = umsMemberReceiveAddressMapper.selectByExample(example);
-
+        List<UmsMemberReceiveAddress> umsMemberReceiveAddresses= umsMemberReceiveAddressMapper.selectAddressByMemberId(memberId);
         return umsMemberReceiveAddresses;
+    }
+
+    @Override
+    public List<UmsMember> getAllUser() {
+
+        List<UmsMember> umsMembers=userMapper.selectAll();
+
+        return umsMembers;
+
     }
 }
